@@ -1,0 +1,32 @@
+# Java and Maven build files
+**/target/
+**/bin/
+
+# IDE files
+.idea/
+.settings/
+*.class
+
+# Secrets and credentials
+.env
+.env.*
+!.env.example
+**/application-local.properties
+**/application-secrets.properties
+*.pem
+*.key
+*.p12
+*.jks
+
+# Temporary files
+*.log
+.DS_Store
+
+# Eclipse-generated metadata
+**/.project
+**/.classpath
+**/.settings/
+
+# Additional temporary files
+*.tmp
+*.bak
