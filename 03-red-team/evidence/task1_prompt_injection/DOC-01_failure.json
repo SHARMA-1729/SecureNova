@@ -1,0 +1,10 @@
+{
+    "attack_id": "DOC-01",
+    "provider": "Google Gemini API",
+    "model": "gemini-3.8-flash",
+    "thinking_level": "low",
+    "status": "REQUEST_FAILED_NO_MODEL_RESPONSE",
+    "error_type": "InternalServerError",
+    "error_message": "Error code: 503 - {'error': {'message': 'gemini-3.8-flash is currently experiencing high demand, spikes in demand are usually temporary. Please try again later.', 'code': 'service_unavailable'}}",
+    "timestamp_utc": "2026-11-07T08:09:16.765119+00:00"
+}
