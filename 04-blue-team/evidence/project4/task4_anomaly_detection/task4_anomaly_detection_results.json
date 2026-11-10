@@ -1,0 +1,176 @@
+{
+    "project": "SecureNova",
+    "task": "Project 4 - Task 4: Anomaly Detection",
+    "execution_timestamp_utc": "2026-11-09T13:00:35.918305+00:00",
+    "execution_type": "LOCAL DETERMINISTIC SIMULATION",
+    "detectors": {
+        "request_volume": {
+            "threshold": 20,
+            "window_seconds": 60,
+            "comparison": ">"
+        },
+        "scope_change": {
+            "comparison": "consecutive requests"
+        },
+        "expired_token_reuse": {
+            "comparison": "request timestamp >= expiry"
+        }
+    },
+    "summary": {
+        "total_tests": 3,
+        "passed_tests": 3,
+        "failed_tests": 0,
+        "alerts_generated": 3,
+        "overall_result": "PASS"
+    },
+    "test_results": [
+        {
+            "test_id": "ANOMALY-01",
+            "project3_reference": "F-01",
+            "scenario": "LLM API request volume spike",
+            "requests_generated": 21,
+            "window_seconds": 60,
+            "threshold": 20,
+            "alert_at_20_requests": false,
+            "alert_at_21_requests": true,
+            "alert": {
+                "timestamp_utc": "2026-11-09T10:00:40+00:00",
+                "identity": "agent-secure-nova",
+                "event_type": "LLM_API_REQUEST_VOLUME_SPIKE",
+                "detector": "REQUEST_VOLUME_60_SECOND_WINDOW",
+                "severity": "HIGH",
+                "reason": "LLM request count exceeded 20 requests within 60 seconds.",
+                "context": {
+                    "request_id": "F01-LLM-REQ-021",
+                    "request_count_in_window": 21,
+                    "threshold": 20,
+                    "window_seconds": 60,
+                    "threshold_operator": ">"
+                }
+            },
+            "test_passed": true
+        },
+        {
+            "test_id": "ANOMALY-02",
+            "project3_reference": "F-02",
+            "scenario": "Unexpected agent scope change",
+            "identity": "agent-finops-audit",
+            "initial_scopes": [
+                "read.ai-data"
+            ],
+            "changed_scopes": [
+                "read.ai-data",
+                "write:admin"
+            ],
+            "baseline_alert": null,
+            "scope_change_alert": {
+                "timestamp_utc": "2026-11-09T10:02:01+00:00",
+                "identity": "agent-finops-audit",
+                "event_type": "AGENT_SCOPE_CHANGE",
+                "detector": "CONSECUTIVE_REQUEST_SCOPE_MONITOR",
+                "severity": "HIGH",
+                "reason": "Agent scopes changed between consecutive requests for the same identity.",
+                "context": {
+                    "request_id": "F02-SCOPE-REQ-002",
+                    "previous_scopes": [
+                        "read.ai-data"
+                    ],
+                    "current_scopes": [
+                        "read.ai-data",
+                        "write:admin"
+                    ],
+                    "added_scopes": [
+                        "write:admin"
+                    ],
+                    "removed_scopes": []
+                }
+            },
+            "test_passed": true
+        },
+        {
+            "test_id": "ANOMALY-03",
+            "project3_reference": "Controlled synthetic token fixture",
+            "scenario": "Expired token reuse",
+            "identity": "agent-secure-nova",
+            "token_type": "SYNTHETIC_TEST_FIXTURE",
+            "token_fingerprint_prefix": "8cebb3df23784b7d",
+            "token_expires_at_utc": "2026-11-09T10:06:00+00:00",
+            "valid_use_alert": null,
+            "expired_reuse_alert": {
+                "timestamp_utc": "2026-11-09T10:06:01+00:00",
+                "identity": "agent-secure-nova",
+                "event_type": "EXPIRED_TOKEN_REUSE",
+                "detector": "TOKEN_EXPIRY_REUSE_MONITOR",
+                "severity": "HIGH",
+                "reason": "A previously registered token was reused at or after its expiry timestamp.",
+                "context": {
+                    "request_id": "TOKEN-REQ-002",
+                    "token_fingerprint_prefix": "8cebb3df23784b7d",
+                    "token_expires_at_utc": "2026-11-09T10:06:00+00:00",
+                    "token_reused_at_utc": "2026-11-09T10:06:01+00:00"
+                }
+            },
+            "test_passed": true
+        }
+    ],
+    "alerts": [
+        {
+            "timestamp_utc": "2026-11-09T10:00:40+00:00",
+            "identity": "agent-secure-nova",
+            "event_type": "LLM_API_REQUEST_VOLUME_SPIKE",
+            "detector": "REQUEST_VOLUME_60_SECOND_WINDOW",
+            "severity": "HIGH",
+            "reason": "LLM request count exceeded 20 requests within 60 seconds.",
+            "context": {
+                "request_id": "F01-LLM-REQ-021",
+                "request_count_in_window": 21,
+                "threshold": 20,
+                "window_seconds": 60,
+                "threshold_operator": ">"
+            }
+        },
+        {
+            "timestamp_utc": "2026-11-09T10:02:01+00:00",
+            "identity": "agent-finops-audit",
+            "event_type": "AGENT_SCOPE_CHANGE",
+            "detector": "CONSECUTIVE_REQUEST_SCOPE_MONITOR",
+            "severity": "HIGH",
+            "reason": "Agent scopes changed between consecutive requests for the same identity.",
+            "context": {
+                "request_id": "F02-SCOPE-REQ-002",
+                "previous_scopes": [
+                    "read.ai-data"
+                ],
+                "current_scopes": [
+                    "read.ai-data",
+                    "write:admin"
+                ],
+                "added_scopes": [
+                    "write:admin"
+                ],
+                "removed_scopes": []
+            }
+        },
+        {
+            "timestamp_utc": "2026-11-09T10:06:01+00:00",
+            "identity": "agent-secure-nova",
+            "event_type": "EXPIRED_TOKEN_REUSE",
+            "detector": "TOKEN_EXPIRY_REUSE_MONITOR",
+            "severity": "HIGH",
+            "reason": "A previously registered token was reused at or after its expiry timestamp.",
+            "context": {
+                "request_id": "TOKEN-REQ-002",
+                "token_fingerprint_prefix": "8cebb3df23784b7d",
+                "token_expires_at_utc": "2026-11-09T10:06:00+00:00",
+                "token_reused_at_utc": "2026-11-09T10:06:01+00:00"
+            }
+        }
+    ],
+    "security_notes": [
+        "All event streams are deterministic synthetic fixtures.",
+        "F-01 and F-02 are Project 3-derived scenario references.",
+        "Expired-token reuse uses a synthetic fingerprint, not a real token.",
+        "No raw bearer tokens or refresh tokens were logged.",
+        "No live Gemini or production API calls were made."
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "test_id": "OUTPUT-JWT-01",
+    "timestamp_utc": "2026-11-09T09:00:46.238374+00:00",
+    "synthetic_jwt_used": true,
+    "raw_response_contained_jwt": true,
+    "jwt_removed": true,
+    "redaction_placeholder_added": true,
+    "redacted_response": "Synthetic diagnostic response contains: [REDACTED] . This is a controlled test value.",
+    "ordinary_response": "Your return request can be submitted through customer support.",
+    "ordinary_response_after_redaction": "Your return request can be submitted through customer support.",
+    "ordinary_response_unchanged": true,
+    "test_passed": true
+}

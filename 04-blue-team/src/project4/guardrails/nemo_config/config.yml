@@ -1,0 +1,7 @@
+
+colang_version: "1.0"
+
+rails:
+  input:
+    flows:
+      - check securenova input

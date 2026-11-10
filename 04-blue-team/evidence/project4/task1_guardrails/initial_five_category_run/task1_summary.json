@@ -1,0 +1,33 @@
+{
+    "assessment": "SecureNova Project 4 - Task 1",
+    "task": "Input/Output Guardrails",
+    "timestamp_utc": "2026-11-09T08:09:12.459119+00:00",
+    "framework": "NeMo Guardrails",
+    "framework_version": "0.24.1",
+    "engine": "LLMRails",
+    "validation_api": "check_async",
+    "colang_version": "1.0",
+    "execution_type": "LOCAL_DETERMINISTIC_GUARDRAIL_TEST",
+    "gemini_api_calls": 0,
+    "attack_tests": 5,
+    "attacks_blocked": 5,
+    "attack_expected_outcomes_passed": 5,
+    "legitimate_inputs_tested": 10,
+    "legitimate_inputs_blocked": 0,
+    "false_positive_rate": 0.0,
+    "legitimate_expected_outcomes_passed": 10,
+    "jwt_redaction": {
+        "redaction_matches": 1,
+        "test_passed": true
+    },
+    "all_tests_passed": true,
+    "limitations": [
+        "The input controls use deterministic pattern-based rules.",
+        "Five consolidated Project 3 attack categories were tested.",
+        "The test suite does not represent every possible adversarial variation.",
+        "The ten legitimate prompts are a controlled test sample.",
+        "JWT regex detection does not establish token validity.",
+        "The synthetic JWT cannot authenticate.",
+        "check_async() runs configured rails without invoking the main LLM."
+    ]
+}

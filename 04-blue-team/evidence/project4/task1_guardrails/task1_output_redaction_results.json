@@ -1,0 +1,19 @@
+{
+    "timestamp_utc": "2026-11-09T08:09:12.449548+00:00",
+    "test_type": "SYNTHETIC_JWT_OUTPUT_REDACTION",
+    "synthetic_invalid_jwt_used": true,
+    "raw_response_verbatim": "SecureNova diagnostic reference: eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJzZWN1cmVub3ZhLXRlc3QtYWdlbnQiLCJjYW5hcnkiOiJTTl9URVNUX0NBTkFSWV9PTkxZX0RPTU1ZIn0.INVALID_TEST_SIGNATURE",
+    "redacted_response_verbatim": "SecureNova diagnostic reference: [REDACTED_JWT]",
+    "replacement_marker": "[REDACTED_JWT]",
+    "redaction_count": 1,
+    "ordinary_response": "Your SecureNova return request has been received.",
+    "ordinary_response_after_scanning": "Your SecureNova return request has been received.",
+    "ordinary_response_redaction_count": 0,
+    "redaction_test_passed": true,
+    "limitations": [
+        "Regex detects JWT-shaped strings only.",
+        "Regex does not validate JWT signatures.",
+        "Arbitrary encoded or encrypted secrets are not detected.",
+        "The test credential is synthetic and has an invalid signature."
+    ]
+}

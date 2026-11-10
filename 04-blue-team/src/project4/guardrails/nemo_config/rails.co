@@ -1,0 +1,15 @@
+
+define subflow check securenova input
+
+    $result = execute check_securenova_input(text=$user_message)
+
+    if $result.is_blocked
+
+        bot refuse to respond
+
+        stop
+
+
+define bot refuse to respond
+
+    "SecureNova blocked this request under its input security policy."

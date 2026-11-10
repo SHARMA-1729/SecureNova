@@ -1,0 +1,91 @@
+{
+    "project": "SecureNova",
+    "task": "Project 4 - Task 1: Input/Output Guardrails",
+    "timestamp_utc": "2026-11-09T09:00:46.247117+00:00",
+    "framework": "NeMo Guardrails",
+    "implementation_type": "LOCAL DETERMINISTIC INPUT POLICY + NEMO INPUT RAIL",
+    "attack_regression_tests": {
+        "total": 18,
+        "blocked": 18,
+        "passed_through": 0,
+        "all_tests_passed": true,
+        "by_finding": {
+            "F-01": {
+                "attempts": 8,
+                "blocked": 8,
+                "passed": 0,
+                "all_attacks_blocked": true,
+                "test_ids": [
+                    "F01-DOC-01",
+                    "F01-DOC-02",
+                    "F01-DOC-03",
+                    "F01-DOC-04",
+                    "F01-DOC-05",
+                    "F01-DOC-06",
+                    "F01-DOC-07",
+                    "F01-DOC-08"
+                ]
+            },
+            "F-02": {
+                "attempts": 3,
+                "blocked": 3,
+                "passed": 0,
+                "all_attacks_blocked": true,
+                "test_ids": [
+                    "F02-continue_as_admin",
+                    "F02-spoofed_tool_call",
+                    "F02-impersonation_chain"
+                ]
+            },
+            "F-03": {
+                "attempts": 5,
+                "blocked": 5,
+                "passed": 0,
+                "all_attacks_blocked": true,
+                "test_ids": [
+                    "F03-T3-01",
+                    "F03-T3-02",
+                    "F03-T3-03",
+                    "F03-T3-04",
+                    "F03-T3-05"
+                ]
+            },
+            "F-04": {
+                "attempts": 1,
+                "blocked": 1,
+                "passed": 0,
+                "all_attacks_blocked": true,
+                "test_ids": [
+                    "F04-T3-06"
+                ]
+            },
+            "F-05": {
+                "attempts": 1,
+                "blocked": 1,
+                "passed": 0,
+                "all_attacks_blocked": true,
+                "test_ids": [
+                    "F05-RAG-003"
+                ]
+            }
+        }
+    },
+    "legitimate_input_tests": {
+        "total": 10,
+        "false_positives": 0,
+        "false_positive_rate_percent": 0.0,
+        "all_tests_passed": true
+    },
+    "output_redaction": {
+        "test_passed": true,
+        "jwt_removed": true,
+        "ordinary_response_unchanged": true
+    },
+    "overall_result": "PASS",
+    "limitations": [
+        "These are deterministic local guardrail regression tests. They do not call Gemini or another live LLM.",
+        "The identity-spoofing, privilege-escalation, and MCP payloads are synthetic test inputs.",
+        "The JWT used for output-redaction testing is the synthetic invalid Project 3 canary, not a real token.",
+        "Input blocking does not prove that a live model or external tool is protected at runtime."
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "project": "SecureNova",
+    "task": "Project 4 - Task 2: Ed25519 Identity Binding",
+    "timestamp_utc": "2026-11-09T09:36:54.758770+00:00",
+    "agent_id": "agent-secure-nova",
+    "algorithm": "Ed25519",
+    "private_key": {
+        "file_created": true,
+        "storage": "Windows Local AppData outside project workspace",
+        "encryption": "PEM PKCS8 with BestAvailableEncryption",
+        "path": "C:\\Users\\clouduser.AZ-LKM-JAV-01\\AppData\\Local\\SecureNova\\Project4\\keys\\agent-secure-nova_ed25519_private.pem",
+        "private_key_contents_logged": false
+    },
+    "public_key": {
+        "file_created": true,
+        "format": "PEM SubjectPublicKeyInfo",
+        "path": "C:\\Users\\clouduser.AZ-LKM-JAV-01\\eclipse-workspace\\securenova-red-team\\evidence\\project4\\task2_identity_binding\\agent-secure-nova_ed25519_public.pem",
+        "sha256_fingerprint": "ff7afbc3af717b48afb0d1f66b843cd495faa178dae24f6c68996a3d6c314b78"
+    },
+    "private_key_passphrase_logged": false
+}
